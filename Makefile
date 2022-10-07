@@ -1,14 +1,14 @@
-kjv: kjv.sh kjv.awk kjv.tsv
-	cat kjv.sh > $@
+kjv: rtb.sh process.awk bible/
+	cat rtb.sh > $@
 
 	echo 'exit 0' >> $@
 
 	echo '#EOF' >> $@
-	tar czf - kjv.awk kjv.tsv >> $@
+	tar czf - process.awk bible/ >> $@
 
 	chmod +x $@
 
-test: kjv.sh
-	shellcheck -s sh kjv.sh
+test: rtb.sh
+	shellcheck -s sh rtb.sh
 
 .PHONY: test
