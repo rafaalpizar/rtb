@@ -1,7 +1,7 @@
 # Read the Bible: Word of God from your terminal
 
-## kjv [![AUR](https://img.shields.io/badge/AUR-kjv--git-blue.svg)](https://aur.archlinux.org/packages/kjv-git/
-## rvr60 [![AUR](https://img.shields.io/badge/AUR-kjv--git-blue.svg)](https://aur.archlinux.org/packages/kjv-git/
+## Watch
+<a href="https://archive.org/details/new-world-order-bible-versions-full-movie" title="Why the King James Bible?"><img src="https://i.imgur.com/A9piMKc.png" width="250" align="right"></a>
 
 ## Environment Variables
 The environment variable BIBLE_VERSION is used to define the bible version to use.
