@@ -10,6 +10,7 @@ export BIBLE_VERSION=rvr60
 <then run the program>
 
 ## Usage
+
    usage: rtb [flags] [reference...]
 
      -v      list versions
