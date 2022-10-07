@@ -9,6 +9,8 @@ Example to define rvr60 as default version:
 export BIBLE_VERSION=rvr60
 <then run the program>
 
+Note: rvr60 stands for Reina Valera 1960, a spanish version from textus receptus.
+
 ## Usage
 
    usage: rtb [flags] [reference...]
