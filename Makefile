@@ -1,4 +1,4 @@
-kjv: rtb.sh process.awk bible/
+rtb: rtb.sh process.awk bible/
 	cat rtb.sh > $@
 
 	echo 'exit 0' >> $@
