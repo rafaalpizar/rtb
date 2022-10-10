@@ -29,15 +29,15 @@ cmd == "list" {
 
 function parseref(ref, arr) {
 	# 1. <book>
-	# 2. <book>:?<chapter>
-	# 3. <book>:?<chapter>:<verse>
-	# 3a. <book>:?<chapter>:<verse>[,<verse>]...
-	# 4. <book>:?<chapter>-<chapter>
-	# 5. <book>:?<chapter>:<verse>-<verse>
-	# 6. <book>:?<chapter>:<verse>-<chapter>:<verse>
+	# 2. <book>.?<chapter>
+	# 3. <book>.?<chapter>.<verse>
+	# 3a. <book>.?<chapter>.<verse>[,<verse>]...
+	# 4. <book>.?<chapter>-<chapter>
+	# 5. <book>.?<chapter>.<verse>-<verse>
+	# 6. <book>.?<chapter>.<verse>-<chapter>.<verse>
 	# 7. /<search>
 	# 8. <book>/search
-	# 9. <book>:?<chapter>/search
+	# 9. <book>.?<chapter>/search
 
 	if (match(ref, "^[1-9]?[a-zA-Z ]+")) {
 		# 1, 2, 3, 3a, 4, 5, 6, 8, 9
@@ -51,9 +51,9 @@ function parseref(ref, arr) {
 		return "unknown"
 	}
 
-	if (match(ref, "^:?[1-9]+[0-9]*")) {
+	if (match(ref, "^[.]?[1-9]+[0-9]*")) {
 		# 2, 3, 3a, 4, 5, 6, 9
-		if (sub("^:", "", ref)) {
+		if (sub("^[.]", "", ref)) {
 			arr["chapter"] = int(substr(ref, 1, RLENGTH - 1))
 			ref = substr(ref, RLENGTH)
 		} else {
@@ -71,7 +71,7 @@ function parseref(ref, arr) {
 		return "unknown"
 	}
 
-	if (match(ref, "^:[1-9]+[0-9]*")) {
+	if (match(ref, "^[.][1-9]+[0-9]*")) {
 		# 3, 3a, 5, 6
 		arr["verse"] = int(substr(ref, 2, RLENGTH - 1))
 		ref = substr(ref, RLENGTH + 1)
@@ -119,7 +119,7 @@ function parseref(ref, arr) {
 		return "unknown"
 	}
 
-	if (match(ref, "^:[1-9]+[0-9]*$")) {
+	if (match(ref, "^[.][1-9]+[0-9]*$")) {
 		# 6
 		arr["verse_end"] = int(substr(ref, 2))
 		return "range_ext"
@@ -178,7 +178,7 @@ function processline() {
 		last_book_printed = $2
 	}
 
-	printf("%d:%d\t", $4, $5)
+	printf("%d.%d\t", $4, $5)
 	printverse($6)
 	outputted_records++
 }
