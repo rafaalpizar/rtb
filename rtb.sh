@@ -111,7 +111,7 @@ if [ $# -eq 0 ]; then
 
     # Interactive mode
     while true; do
-	printf "kjv> "
+	printf "rtb (read the bible)> "
 	if ! read -r ref; then
 	    break
 	fi
