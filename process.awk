@@ -8,13 +8,13 @@ BEGIN {
     FS = "\t"
 
     # transliterate constants
-    # what characters to tranliterate
-    tr_from = "áéíóú"
-    tr_to = "aeiou"
+    # all are lower case
+    tr_from = "áéíóúñ"
+    tr_to = "aeioun"
     # transliteration constants lengths
     len_from = length(tr_from)
     len_to =length(tr_to)
-    # initializa array
+    # initializalize array
     for (i = 1; i <= len_to; i++)
         t_ar[substr(tr_from, i, 1)] = substr(tr_to, i, 1)
     if (len_to < len_from)
